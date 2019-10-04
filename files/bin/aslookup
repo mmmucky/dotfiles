@@ -1,0 +1,5 @@
+#!/bin/bash
+# BGP AS Number lookup
+
+[ -z "$1" ] && echo "usage: aslookup <AS Number>" && exit 1
+whois -h whois.cymru.com " -v AS${1}"

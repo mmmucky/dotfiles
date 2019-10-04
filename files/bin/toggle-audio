@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PROFILE=`pacmd list-cards | grep "active profile" | awk '{print $3}' | sed 's/[<>]//g'`
+if [[ "x$PROFILE" = "xoutput:analog-stereo" ]]
+then
+  pactl set-card-profile 0 output:hdmi-stereo
+else
+  pactl set-card-profile 0 output:analog-stereo
+fi
+
